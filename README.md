@@ -1,14 +1,12 @@
-# @nhatthm/{name}
+# Cucumber N26 API for Golang
 
-<!--
-[![Build Status](https://github.com/nhatthm/{name}/actions/workflows/test.yaml/badge.svg)](https://github.com/nhatthm/{}name/actions/workflows/test.yaml)
-[![codecov](https://codecov.io/gh/nhatthm/{name}/branch/master/graph/badge.svg?token=eTdAgDE2vR)](https://codecov.io/gh/nhatthm/{name})
-[![Go Report Card](https://goreportcard.com/badge/github.com/nhatthm/{name})](https://goreportcard.com/report/github.com/nhatthm/{name})
-[![GoDevDoc](https://img.shields.io/badge/dev-doc-00ADD8?logo=go)](https://pkg.go.dev/github.com/nhatthm/{name})
+[![Build Status](https://github.com/nhatthm/n26godog/actions/workflows/test.yaml/badge.svg)](https://github.com/nhatthm/{}name/actions/workflows/test.yaml)
+[![codecov](https://codecov.io/gh/nhatthm/n26godog/branch/master/graph/badge.svg?token=eTdAgDE2vR)](https://codecov.io/gh/nhatthm/n26godog)
+[![Go Report Card](https://goreportcard.com/badge/github.com/nhatthm/n26godog)](https://goreportcard.com/report/github.com/nhatthm/n26godog)
+[![GoDevDoc](https://img.shields.io/badge/dev-doc-00ADD8?logo=go)](https://pkg.go.dev/github.com/nhatthm/n26godog)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?hosted_button_id=PJZSGJN57TDJY)
--->
 
-TBD
+`n26godog` provides `cucumber/godog` steps for testing N26 API.
 
 ## Prerequisites
 
@@ -17,16 +15,58 @@ TBD
 ## Install
 
 ```bash
-go get github.com/nhatthm/{name}
+go get github.com/nhatthm/n26godog
 ```
 
 ## Usage
 
-TBD
+For example:
+
+```go
+package mypackage
+
+import (
+    "testing"
+
+    "github.com/cucumber/godog"
+    "github.com/nhatthm/n26godog"
+)
+
+func TestIntegration(t *testing.T) {
+    server := n26godog.New(t)
+    suite := godog.TestSuite{
+        Name:                 "Integration",
+        TestSuiteInitializer: nil,
+        ScenarioInitializer: func(ctx *godog.ScenarioContext) {
+            server.RegisterContext(ctx)
+        },
+        Options: &godog.Options{
+            Strict:    true,
+            Output:    out,
+            Randomize: rand.Int63(),
+        },
+    }
+
+    // Initiate your client and run it with the suite.
+    status := suite.Run()
+}
+```
+
+## Steps
+
+### Authentication
+- `^n26 receives a login request with username "([^"]+)", password "([^"]+)" and device id "([^"]+)" but the credentials is wrong`
+- `^n26 receives a login request with username "([^"]+)", password "([^"]+)" and device id "([^"]+)" but no one confirms login`
+- `^n26 receives a success login request with username "([^"]+)", password "([^"]+)" and device id "([^"]+)"`
+
+### Transactions
+
+- `^n26 receives a request to find all transactions in between "([^"]+)" and "([^"]+)"(?: with page size ([0-9]+))? and responses:$`
+- `^n26 receives a request to find all transactions in between "([^"]+)" and "([^"]+)"(?: with page size ([0-9]+))? and responses with result from file:$`
 
 ## Examples
 
-TBA
+See https://github.com/nhatthm/n26godog/tree/master/features
 
 ## Donation
 
