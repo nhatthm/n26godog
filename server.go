@@ -11,6 +11,7 @@ import (
 	"github.com/nhatthm/n26api/pkg/testkit"
 	"github.com/nhatthm/n26api/pkg/transaction"
 	"github.com/nhatthm/timeparser"
+	"github.com/stretchr/testify/assert"
 )
 
 // Server is a wrapper around *testkit.Server to provide support for cucumber/godog.
@@ -19,9 +20,10 @@ type Server struct {
 }
 
 // RegisterContext registers Server to a scenario.
-func (s *Server) RegisterContext(ctx *godog.ScenarioContext) {
+func (s *Server) RegisterContext(t testkit.TestingT, ctx *godog.ScenarioContext) {
 	ctx.AfterScenario(func(*godog.Scenario, error) {
-		// Check if all the expectations are met.
+		assert.NoError(t, s.ExpectationsWereMet())
+
 		s.ResetExpectations()
 	})
 

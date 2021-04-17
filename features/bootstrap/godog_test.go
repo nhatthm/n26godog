@@ -47,7 +47,7 @@ func TestIntegration(t *testing.T) {
 	client := newClient(server.URL(), clock)
 
 	RunSuite(t, "..", func(_ *testing.T, ctx *godog.ScenarioContext) {
-		server.RegisterContext(ctx)
+		server.RegisterContext(t, ctx)
 		clock.RegisterContext(ctx)
 		client.registerContext(ctx)
 	})

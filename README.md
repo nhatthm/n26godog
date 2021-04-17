@@ -38,7 +38,7 @@ func TestIntegration(t *testing.T) {
         Name:                 "Integration",
         TestSuiteInitializer: nil,
         ScenarioInitializer: func(ctx *godog.ScenarioContext) {
-            server.RegisterContext(ctx)
+            server.RegisterContext(t, ctx)
         },
         Options: &godog.Options{
             Strict:    true,
