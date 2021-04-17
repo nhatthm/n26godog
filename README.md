@@ -58,6 +58,8 @@ func TestIntegration(t *testing.T) {
 - `^n26 receives a login request with username "([^"]+)", password "([^"]+)" and device id "([^"]+)" but the credentials is wrong`
 - `^n26 receives a login request with username "([^"]+)", password "([^"]+)" and device id "([^"]+)" but no one confirms login`
 - `^n26 receives a success login request with username "([^"]+)", password "([^"]+)" and device id "([^"]+)"`
+- `^n26 receives a refresh token request but the token is invalid`
+- `^n26 receives a success refresh token request`
 
 ### Transactions
 

@@ -29,6 +29,8 @@ func (s *Server) RegisterContext(ctx *godog.ScenarioContext) {
 	ctx.Step(`^n26 receives a login request with username "([^"]+)", password "([^"]+)" and device id "([^"]+)" but the credentials is wrong`, s.loginFailureWrongCredentials)
 	ctx.Step(`^n26 receives a login request with username "([^"]+)", password "([^"]+)" and device id "([^"]+)" but no one confirms login`, s.loginFailureNoConfirmLogin)
 	ctx.Step(`^n26 receives a success login request with username "([^"]+)", password "([^"]+)" and device id "([^"]+)"`, s.loginSuccess)
+	ctx.Step(`^n26 receives a refresh token request but the token is invalid`, s.refreshTokenInvalid)
+	ctx.Step(`^n26 receives a success refresh token request`, s.refreshTokenSuccess)
 
 	// Transactions.
 	ctx.Step(`^n26 receives a request to find all transactions in between "([^"]+)" and "([^"]+)"(?: with page size ([0-9]+))? and responses:$`, s.findTransactionsInRangeWithResult)
@@ -66,6 +68,18 @@ func (s *Server) loginSuccess(username, password, deviceID string) error {
 	}
 
 	testkit.WithAuthSuccess(username, password, device)(s.Server)
+
+	return nil
+}
+
+func (s *Server) refreshTokenInvalid() error {
+	testkit.WithAuthRefreshTokenFailureInvalidToken()(s.Server)
+
+	return nil
+}
+
+func (s *Server) refreshTokenSuccess() error {
+	testkit.WithAuthRefreshTokenSuccess()(s.Server)
 
 	return nil
 }

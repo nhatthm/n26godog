@@ -9,6 +9,7 @@ import (
 
 	"github.com/cucumber/godog"
 	"github.com/google/uuid"
+	clock "github.com/nhatthm/go-clock"
 	"github.com/nhatthm/n26api"
 	"github.com/nhatthm/n26api/pkg/transaction"
 	"github.com/nhatthm/timeparser"
@@ -16,8 +17,9 @@ import (
 )
 
 type client struct {
-	uri string
-	api *n26api.Client
+	uri   string
+	api   *n26api.Client
+	clock clock.Clock
 }
 
 func (c *client) registerContext(ctx *godog.ScenarioContext) {
@@ -43,6 +45,7 @@ func (c *client) newAPIClient(username, password, deviceStr string) error {
 		n26api.WithCredentials(username, password),
 		n26api.WithMFAWait(5*time.Millisecond),
 		n26api.WithMFATimeout(50*time.Millisecond),
+		n26api.WithClock(c.clock),
 	)
 
 	return nil
@@ -104,8 +107,9 @@ func (c *client) findAllTransactionsInRangeSuccess(from, to string, expectedBody
 	return assertjson.FailNotEqual([]byte(expectedBody.Content), actual)
 }
 
-func newClient(uri string) *client {
+func newClient(uri string, c clock.Clock) *client {
 	return &client{
-		uri: uri,
+		uri:   uri,
+		clock: c,
 	}
 }

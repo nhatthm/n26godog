@@ -11,6 +11,7 @@ import (
 	"testing"
 
 	"github.com/cucumber/godog"
+	"github.com/nhatthm/clockdog"
 	"github.com/nhatthm/n26godog"
 	"github.com/stretchr/testify/assert"
 )
@@ -41,12 +42,14 @@ func TestIntegration(t *testing.T) {
 		t.Skip(`Missing "-godog" flag, skipping integration test.`)
 	}
 
-	s := n26godog.New(t)
-	c := newClient(s.URL())
+	server := n26godog.New(t)
+	clock := clockdog.New()
+	client := newClient(server.URL(), clock)
 
 	RunSuite(t, "..", func(_ *testing.T, ctx *godog.ScenarioContext) {
-		s.RegisterContext(ctx)
-		c.registerContext(ctx)
+		server.RegisterContext(ctx)
+		clock.RegisterContext(ctx)
+		client.registerContext(ctx)
 	})
 }
 
