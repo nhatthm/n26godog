@@ -100,12 +100,7 @@ func (s *Server) findTransactionsInRangeWithResultFromFile(from, to, pageSize st
 }
 
 func (s *Server) findTransactionsInRange(from, to, pageSize string, result []byte) error {
-	f, err := timeparser.Parse(from)
-	if err != nil {
-		return err
-	}
-
-	t, err := timeparser.Parse(to)
+	f, t, err := timeparser.ParsePeriod(from, to)
 	if err != nil {
 		return err
 	}

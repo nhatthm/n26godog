@@ -185,8 +185,9 @@ github.com/nhatthm/httpmock v0.5.3 h1:ihqVs94sTcFQ4TErOO3+Jxd4HBoxeg6nVQ6r/MgcoP
 github.com/nhatthm/httpmock v0.5.3/go.mod h1:jaa6GEXYruoXaNF+QJ+zYCHqQ3RX150rKLnGw2Rjo3o=
 github.com/nhatthm/n26api v0.3.3 h1:8V+brBCttjFBB53XeNN4RXMiUJVlBOOMNVZjEHqfCJ0=
 github.com/nhatthm/n26api v0.3.3/go.mod h1:CwVLj8R8mbmqHsa9jzB4Qhiu6Ieuata9qqs4rYt9N64=
-github.com/nhatthm/timeparser v0.1.0 h1:zksyZ4MoLAS0yzzCzFWPgUHAIHARR0aWdXw/TPNydeY=
 github.com/nhatthm/timeparser v0.1.0/go.mod h1:FPeNpb70J+UHjmQifiImZWrDnc4Ao8dGdtZ08oaUdro=
+github.com/nhatthm/timeparser v0.2.0 h1:iItJSmsdRUMuEj/sTCcl1V1KT96TbuQ03uRpVDudodo=
+github.com/nhatthm/timeparser v0.2.0/go.mod h1:FPeNpb70J+UHjmQifiImZWrDnc4Ao8dGdtZ08oaUdro=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e/go.mod h1:zD1mROLANZcx1PVRCS0qkT7pwLkGfwJo4zjcN/Tysno=
 github.com/nxadm/tail v1.4.4/go.mod h1:kenIhsEOeOJmVchQTgglprH7qJGnHDVpk1VPCcaMI8A=
 github.com/nxadm/tail v1.4.8 h1:nPr65rt6Y5JFSKQO7qToXr7pePgD6Gwiw05lkbyAQTE=

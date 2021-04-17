@@ -52,12 +52,7 @@ func (c *client) newAPIClient(username, password, deviceStr string) error {
 }
 
 func (c *client) findAllTransactionsInRange(from, to string) ([]transaction.Transaction, error) {
-	start, err := timeparser.Parse(from)
-	if err != nil {
-		return nil, err
-	}
-
-	end, err := timeparser.Parse(to)
+	start, end, err := timeparser.ParsePeriod(from, to)
 	if err != nil {
 		return nil, err
 	}
