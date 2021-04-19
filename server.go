@@ -17,12 +17,14 @@ import (
 // Server is a wrapper around *testkit.Server to provide support for cucumber/godog.
 type Server struct {
 	*testkit.Server
+
+	test testkit.TestingT
 }
 
 // RegisterContext registers Server to a scenario.
-func (s *Server) RegisterContext(t testkit.TestingT, ctx *godog.ScenarioContext) {
+func (s *Server) RegisterContext(ctx *godog.ScenarioContext) {
 	ctx.AfterScenario(func(*godog.Scenario, error) {
-		assert.NoError(t, s.ExpectationsWereMet())
+		assert.NoError(s.test, s.ExpectationsWereMet())
 
 		s.ResetExpectations()
 	})
@@ -129,6 +131,7 @@ func (s *Server) findTransactionsInRange(from, to, pageSize string, result []byt
 func New(t testkit.TestingT) *Server {
 	return &Server{
 		Server: testkit.NewServer(t),
+		test:   t,
 	}
 }
 
