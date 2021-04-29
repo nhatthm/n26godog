@@ -183,10 +183,10 @@ github.com/nhatthm/clockdog v0.1.2 h1:AifmhpmnROyxNyEdK+Nng0Atjoc7Hpa7jWOTncVc0d
 github.com/nhatthm/clockdog v0.1.2/go.mod h1:v/tGXeZI4/l/e52V+8tICDzn+Sv3EYH2a0if8eJ7LlM=
 github.com/nhatthm/go-clock v0.6.0 h1:R8I8slcnValPDdM4Cd3Tk3JSSDnZk3nPuLzzPFInYtU=
 github.com/nhatthm/go-clock v0.6.0/go.mod h1:KASu97ux5p0fpVsazI4sGJN+HlzeobKsvEtjaFQUXjc=
-github.com/nhatthm/httpmock v0.5.3 h1:ihqVs94sTcFQ4TErOO3+Jxd4HBoxeg6nVQ6r/MgcoP4=
-github.com/nhatthm/httpmock v0.5.3/go.mod h1:jaa6GEXYruoXaNF+QJ+zYCHqQ3RX150rKLnGw2Rjo3o=
-github.com/nhatthm/n26api v0.3.4 h1:Bvd/8AjE++HnSj1N+swKMUzBiWYoHAhVYmEnE75G4z0=
-github.com/nhatthm/n26api v0.3.4/go.mod h1:D+yVRK7DOF2rKCzXcrNm7WfmaF0v9W/dLhFlUWdneJ0=
+github.com/nhatthm/httpmock v0.6.3 h1:vt2vw2EUsPpyOMfCVrfZ+Rt9ZZVV+yBQiFn0Vd5ECoA=
+github.com/nhatthm/httpmock v0.6.3/go.mod h1:wE9KU1RZGYD0eLqy5bHieJkG4lU0kWauNyrqzj9Lx+U=
+github.com/nhatthm/n26api v0.3.5 h1:L/BJ1CmjyZsY/GR9FiIGPdcIMmUfJDUaUooTGWEPFlE=
+github.com/nhatthm/n26api v0.3.5/go.mod h1:v1F9ypNWNHq+aeM2Ka8GXWGNgTkCsAdlSjhGLi6nEUI=
 github.com/nhatthm/timeparser v0.2.0 h1:iItJSmsdRUMuEj/sTCcl1V1KT96TbuQ03uRpVDudodo=
 github.com/nhatthm/timeparser v0.2.0/go.mod h1:FPeNpb70J+UHjmQifiImZWrDnc4Ao8dGdtZ08oaUdro=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e/go.mod h1:zD1mROLANZcx1PVRCS0qkT7pwLkGfwJo4zjcN/Tysno=
