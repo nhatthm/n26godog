@@ -1,6 +1,7 @@
 package n26godog
 
 import (
+	"context"
 	"encoding/json"
 	"io/ioutil"
 	"strconv"
@@ -23,10 +24,12 @@ type Server struct {
 
 // RegisterContext registers Server to a scenario.
 func (s *Server) RegisterContext(ctx *godog.ScenarioContext) {
-	ctx.AfterScenario(func(*godog.Scenario, error) {
+	ctx.After(func(context.Context, *godog.Scenario, error) (context.Context, error) {
 		assert.NoError(s.test, s.ExpectationsWereMet())
 
 		s.ResetExpectations()
+
+		return nil, nil
 	})
 
 	// Auth.

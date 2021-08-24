@@ -9,7 +9,7 @@ import (
 
 	"github.com/cucumber/godog"
 	"github.com/google/uuid"
-	clock "github.com/nhatthm/go-clock"
+	"github.com/nhatthm/go-clock"
 	"github.com/nhatthm/n26api"
 	"github.com/nhatthm/n26api/pkg/transaction"
 	"github.com/nhatthm/timeparser"
@@ -23,8 +23,10 @@ type client struct {
 }
 
 func (c *client) registerContext(ctx *godog.ScenarioContext) {
-	ctx.AfterScenario(func(*godog.Scenario, error) {
+	ctx.After(func(context.Context, *godog.Scenario, error) (context.Context, error) {
 		c.api = nil
+
+		return nil, nil
 	})
 
 	ctx.Step(`create a n26 client with username "([^"]+)", password "([^"]+)" and device id "([^"]+)"`, c.newAPIClient)
