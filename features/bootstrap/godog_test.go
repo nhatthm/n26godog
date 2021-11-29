@@ -11,9 +11,10 @@ import (
 	"testing"
 
 	"github.com/cucumber/godog"
-	"github.com/nhatthm/clockdog"
-	"github.com/nhatthm/n26godog"
+	"github.com/godogx/clocksteps"
 	"github.com/stretchr/testify/assert"
+
+	"github.com/nhatthm/n26godog"
 )
 
 // Used by init().
@@ -43,7 +44,7 @@ func TestIntegration(t *testing.T) {
 	}
 
 	server := n26godog.New(t)
-	clock := clockdog.New()
+	clock := clocksteps.New()
 	client := newClient(server.URL(), clock)
 
 	RunSuite(t, "..", func(_ *testing.T, ctx *godog.ScenarioContext) {
