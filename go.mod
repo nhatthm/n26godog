@@ -3,7 +3,7 @@ module github.com/nhatthm/n26godog
 go 1.17
 
 require (
-	github.com/cucumber/godog v0.12.2
+	github.com/cucumber/godog v0.12.3
 	github.com/godogx/clocksteps v0.1.1
 	github.com/google/uuid v1.3.0
 	github.com/nhatthm/go-clock v0.6.0
