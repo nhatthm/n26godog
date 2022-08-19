@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/cucumber/godog v0.12.5
-	github.com/godogx/clocksteps v0.1.1
+	github.com/godogx/clocksteps v0.2.0
 	github.com/google/uuid v1.3.0
 	github.com/nhatthm/go-clock v0.6.0
 	github.com/nhatthm/n26api v0.4.0
@@ -34,6 +34,7 @@ require (
 	github.com/stretchr/objx v0.4.0 // indirect
 	github.com/yudai/gojsondiff v1.0.0 // indirect
 	github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82 // indirect
+	go.nhat.io/clock v0.7.0 // indirect
 	golang.org/x/net v0.0.0-20201202161906-c7110b5ffcbb // indirect
 	golang.org/x/sys v0.0.0-20210112080510-489259a85091 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
