@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"flag"
 	"fmt"
-	"io/ioutil"
 	"math/rand"
+	"os"
 	"path/filepath"
 	"strings"
 	"testing"
@@ -60,12 +60,12 @@ func RunSuite(t *testing.T, path string, featureContext func(t *testing.T, ctx *
 	flag.Parse()
 
 	if opt.Randomize == 0 {
-		opt.Randomize = rand.Int63() // nolint: gosec
+		opt.Randomize = rand.Int63() //nolint: gosec
 	}
 
 	var paths []string
 
-	files, err := ioutil.ReadDir(filepath.Clean(path))
+	files, err := os.ReadDir(filepath.Clean(path))
 	assert.NoError(t, err)
 
 	paths = make([]string, 0, len(files))
