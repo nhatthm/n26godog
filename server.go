@@ -3,7 +3,8 @@ package n26godog
 import (
 	"context"
 	"encoding/json"
-	"io/ioutil"
+	"os"
+	"path/filepath"
 	"strconv"
 
 	"github.com/cucumber/godog"
@@ -139,7 +140,7 @@ func New(t testkit.TestingT) *Server {
 }
 
 func loadBodyFromFile(filePath string) ([]byte, error) {
-	body, err := ioutil.ReadFile(filePath) // nolint:gosec // File inclusion via variable during tests.
+	body, err := os.ReadFile(filepath.Clean(filePath))
 	if err != nil {
 		return nil, err
 	}

@@ -65,23 +65,23 @@ func (c *client) findAllTransactionsInRange(from, to string) ([]transaction.Tran
 func (c *client) findAllTransactionsInRangeError(from, to string, expectedError *godog.DocString) error {
 	result, err := c.findAllTransactionsInRange(from, to)
 	if err == nil {
-		return errors.New("error is expected") // nolint: goerr113
+		return errors.New("error is expected") //nolint: goerr113
 	}
 
 	if result != nil {
 		raw, err := json.Marshal(result)
 		if err != nil {
-			return errors.New("could not marshal the unexpected result") // nolint: goerr113
+			return errors.New("could not marshal the unexpected result") //nolint: goerr113
 		}
 
-		return fmt.Errorf("unexpected result: %q", string(raw)) // nolint: goerr113
+		return fmt.Errorf("unexpected result: %q", string(raw)) //nolint: goerr113
 	}
 
 	expected := expectedError.Content
 	actual := err.Error()
 
 	if expected != actual {
-		// nolint: goerr113
+		//nolint: goerr113
 		return fmt.Errorf("error message not equal:\n"+
 			"expected: %q\n"+
 			"actual  : %q", expected, actual)
