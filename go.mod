@@ -9,7 +9,7 @@ require (
 	github.com/nhatthm/go-clock v0.6.0
 	github.com/nhatthm/n26api v0.5.0
 	github.com/nhatthm/timeparser v0.2.0
-	github.com/stretchr/testify v1.8.1
+	github.com/stretchr/testify v1.8.2
 	github.com/swaggest/assertjson v1.7.0
 )
 
@@ -24,10 +24,6 @@ require (
 	github.com/hashicorp/go-memdb v1.3.4 // indirect
 	github.com/hashicorp/golang-lru v0.5.4 // indirect
 	github.com/iancoleman/orderedmap v0.2.0 // indirect
-	github.com/mattn/go-isatty v0.0.16 // indirect
-	github.com/nhatthm/go-matcher v1.3.1 // indirect
-	github.com/nhatthm/httpmock v0.8.0 // indirect
-	github.com/nxadm/tail v1.4.8 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/sergi/go-diff v1.3.1 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
@@ -39,7 +35,6 @@ require (
 	go.nhat.io/matcher/v2 v2.0.0 // indirect
 	go.nhat.io/timeparser v0.3.0 // indirect
 	go.nhat.io/wait v0.1.0 // indirect
-	golang.org/x/net v0.5.0 // indirect
-	golang.org/x/sys v0.5.0 // indirect
+	golang.org/x/text v0.6.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
