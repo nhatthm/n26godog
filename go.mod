@@ -10,7 +10,7 @@ require (
 	github.com/nhatthm/n26api v0.5.0
 	github.com/nhatthm/timeparser v0.2.0
 	github.com/stretchr/testify v1.8.2
-	github.com/swaggest/assertjson v1.7.0
+	github.com/swaggest/assertjson v1.8.0
 )
 
 require (
