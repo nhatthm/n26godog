@@ -9,7 +9,7 @@ require (
 	github.com/nhatthm/go-clock v0.6.0
 	github.com/nhatthm/n26api v0.5.0
 	github.com/nhatthm/timeparser v0.2.0
-	github.com/stretchr/testify v1.8.3
+	github.com/stretchr/testify v1.8.4
 	github.com/swaggest/assertjson v1.8.1
 )
 
