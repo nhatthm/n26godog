@@ -24,8 +24,15 @@ type Server struct {
 }
 
 // RegisterContext registers Server to a scenario.
-func (s *Server) RegisterContext(ctx *godog.ScenarioContext) {
-	ctx.After(func(context.Context, *godog.Scenario, error) (context.Context, error) {
+//
+// Deprecated: use Server.RegisterSteps instead.
+func (s *Server) RegisterContext(sc *godog.ScenarioContext) {
+	s.RegisterSteps(sc)
+}
+
+// RegisterSteps registers Server to a scenario.
+func (s *Server) RegisterSteps(sc *godog.ScenarioContext) {
+	sc.After(func(context.Context, *godog.Scenario, error) (context.Context, error) {
 		assert.NoError(s.test, s.ExpectationsWereMet())
 
 		s.ResetExpectations()
@@ -34,15 +41,15 @@ func (s *Server) RegisterContext(ctx *godog.ScenarioContext) {
 	})
 
 	// Auth.
-	ctx.Step(`^n26 receives a login request with username "([^"]+)", password "([^"]+)" and device id "([^"]+)" but the credentials is wrong`, s.loginFailureWrongCredentials)
-	ctx.Step(`^n26 receives a login request with username "([^"]+)", password "([^"]+)" and device id "([^"]+)" but no one confirms login`, s.loginFailureNoConfirmLogin)
-	ctx.Step(`^n26 receives a success login request with username "([^"]+)", password "([^"]+)" and device id "([^"]+)"`, s.loginSuccess)
-	ctx.Step(`^n26 receives a refresh token request but the token is invalid`, s.refreshTokenInvalid)
-	ctx.Step(`^n26 receives a success refresh token request`, s.refreshTokenSuccess)
+	sc.Step(`^n26 receives a login request with username "([^"]+)", password "([^"]+)" and device id "([^"]+)" but the credentials is wrong`, s.loginFailureWrongCredentials)
+	sc.Step(`^n26 receives a login request with username "([^"]+)", password "([^"]+)" and device id "([^"]+)" but no one confirms login`, s.loginFailureNoConfirmLogin)
+	sc.Step(`^n26 receives a success login request with username "([^"]+)", password "([^"]+)" and device id "([^"]+)"`, s.loginSuccess)
+	sc.Step(`^n26 receives a refresh token request but the token is invalid`, s.refreshTokenInvalid)
+	sc.Step(`^n26 receives a success refresh token request`, s.refreshTokenSuccess)
 
 	// Transactions.
-	ctx.Step(`^n26 receives a request to find all transactions in between "([^"]+)" and "([^"]+)"(?: with page size ([0-9]+))? and responses:$`, s.findTransactionsInRangeWithResult)
-	ctx.Step(`^n26 receives a request to find all transactions in between "([^"]+)" and "([^"]+)"(?: with page size ([0-9]+))? and responses with result from file:$`, s.findTransactionsInRangeWithResultFromFile)
+	sc.Step(`^n26 receives a request to find all transactions in between "([^"]+)" and "([^"]+)"(?: with page size ([0-9]+))? and responses:$`, s.findTransactionsInRangeWithResult)
+	sc.Step(`^n26 receives a request to find all transactions in between "([^"]+)" and "([^"]+)"(?: with page size ([0-9]+))? and responses with result from file:$`, s.findTransactionsInRangeWithResultFromFile)
 }
 
 func (s *Server) loginFailureWrongCredentials(username, password, deviceID string) error {
